@@ -196,7 +196,8 @@ export class AdminPostsComponent implements OnInit {
     if (this.search) {
       list = list.filter(p => 
         p.content.toLowerCase().includes(this.search.toLowerCase()) || 
-        p.user?.userName?.toLowerCase().includes(this.search.toLowerCase())
+        p.user?.userName?.toLowerCase().includes(this.search.toLowerCase()) ||
+        p.hashtags?.toLowerCase().includes(this.search.toLowerCase())
       );
     }
     this.filteredPosts.set(list);

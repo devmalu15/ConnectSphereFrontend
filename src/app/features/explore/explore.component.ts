@@ -148,7 +148,7 @@ export class ExploreComponent implements OnInit {
 
   constructor(private postService: PostService, private userService: UserService, private followService: FollowService, public auth: AuthService, private route: ActivatedRoute) {}
 
-  ngOnInit() { this.route.queryParams.subscribe(p => { if (p['tag']) { this.query = p['tag']; this.doSearch(); } else this.loadTrending(); }); }
+  ngOnInit() { this.route.queryParams.subscribe(p => { if (p['tag']) { this.query = p['tag'].startsWith('#') ? p['tag'] : '#' + p['tag']; this.doSearch(); } else this.loadTrending(); }); }
 
   loadTrending() { this.loading.set(true); this.postService.getTrending().subscribe(r => { this.enrichPostsWithUsers(r.data); }); }
 
