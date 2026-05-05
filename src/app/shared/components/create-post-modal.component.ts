@@ -119,14 +119,14 @@ import { Post, User } from '../../shared/models/models';
                     <span class="m-desc">Anyone can see this post</span>
                   </div>
                 </button>
-                <button class="menu-item" (click)="setVisibility('2')" [class.active]="visibility === '2'">
+                <button class="menu-item" (click)="setVisibility('1')" [class.active]="visibility === '1'">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                   <div class="m-text">
                     <span class="m-title">FOLLOWERS</span>
                     <span class="m-desc">Only your followers can see</span>
                   </div>
                 </button>
-                <button class="menu-item" (click)="setVisibility('1')" [class.active]="visibility === '1'">
+                <button class="menu-item" (click)="setVisibility('2')" [class.active]="visibility === '2'">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
                   <div class="m-text">
                     <span class="m-title">PRIVATE</span>
@@ -351,6 +351,8 @@ export class CreatePostModalComponent {
     if (!file) return;
     
     if (file.type.startsWith('image/')) {
+      this.selectedFile = file;
+      this.mediaType = 0;
       this.imageChangedEvent = e;
       const reader = new FileReader();
       reader.onload = ev => this.previewUrl.set(ev.target?.result as string);
@@ -379,7 +381,7 @@ export class CreatePostModalComponent {
 
   getVisibilityLabel() {
     if (this.visibility === '0') return 'EVERYONE';
-    if (this.visibility === '2') return 'FOLLOWERS';
+    if (this.visibility === '1') return 'FOLLOWERS';
     return 'PRIVATE';
   }
 
