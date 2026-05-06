@@ -57,13 +57,13 @@ import { environment } from '../../../environments/environment';
   `,
   styles: [`
     :host { display: block; width: 100%; height: 100%; }
-    .auth-content { display: flex; flex-direction: column; gap: 32px; }
+    .auth-content { display: flex; flex-direction: column; gap: 32px; @media (max-width: 480px) { gap: 24px; } }
     
     .auth-header { text-align: center; }
-    .auth-title { font-size: 32px; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.05em; }
+    .auth-title { font-size: 32px; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.05em; @media (max-width: 480px) { font-size: 24px; } }
     .auth-subtitle { color: var(--text3); font-size: 11px; font-weight: 800; letter-spacing: 0.1em; }
 
-    .auth-form { display: flex; flex-direction: column; gap: 24px; }
+    .auth-form { display: flex; flex-direction: column; gap: 24px; @media (max-width: 480px) { gap: 16px; } }
     .field-group { display: flex; flex-direction: column; gap: 10px; }
     .field-group label { font-size: 11px; font-weight: 800; color: var(--text3); letter-spacing: 0.05em; }
 
@@ -71,11 +71,12 @@ import { environment } from '../../../environments/environment';
       background: rgba(255, 255, 255, 0.05); 
       border: 1px solid var(--border-sub); 
       border-radius: 100px; padding: 16px 24px; font-size: 14px; font-weight: 600;
+      @media (max-width: 480px) { padding: 14px 20px; font-size: 13px; }
       &::placeholder { color: rgba(255, 255, 255, 0.2); letter-spacing: 0.02em; }
       &:focus { border-color: rgba(255, 255, 255, 0.3); background: rgba(255, 255, 255, 0.08); }
     }
 
-    .auth-btn { height: 56px; font-size: 16px; font-weight: 800; letter-spacing: 0.02em; border-radius: 100px; margin-top: 8px; }
+    .auth-btn { height: 56px; font-size: 16px; font-weight: 800; letter-spacing: 0.02em; border-radius: 100px; margin-top: 8px; @media (max-width: 480px) { height: 50px; font-size: 14px; } }
 
     .divider {
       display: flex; align-items: center; gap: 16px;
@@ -83,10 +84,11 @@ import { environment } from '../../../environments/environment';
       &::before, &::after { content: ""; flex: 1; height: 1px; background: var(--border-sub); }
     }
 
-    .social-grid { display: flex; flex-direction: column; gap: 16px; }
+    .social-grid { display: flex; flex-direction: column; gap: 16px; @media (max-width: 480px) { gap: 12px; } }
     .google-btn {
       height: 56px; width: 100%; border-radius: 100px; display: flex; align-items: center; justify-content: center; gap: 12px;
       font-size: 14px; font-weight: 600; letter-spacing: 0.25px;
+      @media (max-width: 480px) { height: 50px; font-size: 13px; }
       svg { width: 18px; height: 18px; }
     }
 

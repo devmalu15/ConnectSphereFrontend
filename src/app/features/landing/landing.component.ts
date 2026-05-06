@@ -68,7 +68,7 @@ import { CommonModule } from '@angular/common';
       letter-spacing: -0.06em;
       line-height: 0.9;
       @media (max-width: 768px) { font-size: 80px; }
-      @media (max-width: 480px) { font-size: 60px; }
+      @media (max-width: 480px) { font-size: 52px; margin-bottom: 16px; }
     }
 
     .landing-subtitle { 
@@ -79,7 +79,7 @@ import { CommonModule } from '@angular/common';
       max-width: 600px;
       margin-left: auto;
       margin-right: auto;
-      @media (max-width: 480px) { font-size: 18px; }
+      @media (max-width: 480px) { font-size: 16px; margin-bottom: 32px; padding: 0 16px; }
     }
 
     .cta-group {
@@ -94,6 +94,7 @@ import { CommonModule } from '@angular/common';
       padding: 0 48px;
       font-size: 18px;
       font-weight: 700;
+      @media (max-width: 480px) { height: 56px; padding: 0 32px; font-size: 16px; }
     }
 
     .landing-footer {

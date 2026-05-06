@@ -29,6 +29,7 @@ import { RouterOutlet } from '@angular/router';
         background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.05) 0%, transparent 40%);
         pointer-events: none;
       }
+      @media (max-width: 480px) { padding: 16px; }
     }
 
     .auth-container {
@@ -44,6 +45,7 @@ import { RouterOutlet } from '@angular/router';
       backdrop-filter: var(--glass-blur);
       border: 1px solid var(--border);
       box-shadow: 0 40px 100px rgba(0,0,0,0.8);
+      @media (max-width: 480px) { padding: 32px 24px; border-radius: 24px; }
     }
   `]
 })

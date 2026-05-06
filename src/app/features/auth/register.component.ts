@@ -48,13 +48,13 @@ import { AuthService } from '../../core/services/auth.service';
   `,
   styles: [`
     :host { display: block; width: 100%; height: 100%; }
-    .auth-content { display: flex; flex-direction: column; gap: 24px; }
+    .auth-content { display: flex; flex-direction: column; gap: 24px; @media (max-width: 480px) { gap: 20px; } }
     
     .auth-header { text-align: center; }
-    .auth-title { font-size: 32px; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.05em; }
+    .auth-title { font-size: 32px; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.05em; @media (max-width: 480px) { font-size: 24px; } }
     .auth-subtitle { color: var(--text3); font-size: 11px; font-weight: 800; letter-spacing: 0.1em; }
 
-    .auth-form { display: flex; flex-direction: column; gap: 20px; }
+    .auth-form { display: flex; flex-direction: column; gap: 20px; @media (max-width: 480px) { gap: 16px; } }
     .field-group { display: flex; flex-direction: column; gap: 8px; }
     .field-group label { font-size: 11px; font-weight: 800; color: var(--text3); letter-spacing: 0.05em; }
 
@@ -62,14 +62,16 @@ import { AuthService } from '../../core/services/auth.service';
       background: rgba(255, 255, 255, 0.05); 
       border: 1px solid var(--border-sub); 
       border-radius: 100px; padding: 14px 24px; font-size: 14px; font-weight: 600;
+      @media (max-width: 480px) { padding: 12px 20px; font-size: 13px; }
       &::placeholder { color: rgba(255, 255, 255, 0.2); letter-spacing: 0.02em; }
       &:focus { border-color: rgba(255, 255, 255, 0.3); background: rgba(255, 255, 255, 0.08); }
     }
 
-    .auth-btn { height: 56px; font-size: 16px; font-weight: 800; letter-spacing: 0.02em; border-radius: 100px; margin-top: 12px; }
+    .auth-btn { height: 56px; font-size: 16px; font-weight: 800; letter-spacing: 0.02em; border-radius: 100px; margin-top: 12px; @media (max-width: 480px) { height: 50px; font-size: 14px; margin-top: 8px; } }
 
     .auth-footer {
       text-align: center; font-size: 13px; font-weight: 600; color: var(--text3);
+      @media (max-width: 480px) { font-size: 12px; }
       a { color: var(--text); font-weight: 800; margin-left: 8px; &:hover { text-decoration: underline; } }
     }
 
