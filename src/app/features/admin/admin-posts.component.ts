@@ -1,7 +1,7 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { AdminService } from '../../core/services/api.services';
+import { AdminService, PostService } from '../../core/services/api.services';
 import { Post } from '../../shared/models/models';
 import { PostCardComponent } from '../../shared/components/post-card.component';
 
@@ -238,16 +238,16 @@ export class AdminPostsComponent implements OnInit {
   toast = signal('');
   selectedPost = signal<Post | null>(null);
 
-  constructor(private adminService: AdminService) {}
+  constructor(private adminService: AdminService, private postService: PostService) {}
 
   ngOnInit() { this.loadPage(1); }
 
   loadPage(p: number) {
     this.page = p;
     this.loading.set(true);
-    this.adminService.getAllPosts(p).subscribe({
+    this.postService.getPublic(p).subscribe({
       next: (r: any) => {
-        const items = r.data.items || r.data;
+        const items = r.data.items || [];
         this.posts.set(items);
         this.totalPages = r.data.totalPages || 1;
         this.filterPosts();
