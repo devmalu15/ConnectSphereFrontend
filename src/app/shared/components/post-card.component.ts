@@ -259,10 +259,12 @@ interface ContentSegment {
     }
 
     .c-input-row {
-      display: flex; gap: 12px; margin-top: 16px; padding: 8px; border-radius: 100px;
-      input { flex: 1; padding: 12px 24px; border: none; background: none; color: #FFFFFF; font-size: 14px; font-weight: 500; &:focus { outline: none; } @media (max-width: 640px) { padding: 8px 16px; font-size: 13px; } }
-      button { padding: 0 24px; font-size: 11px; letter-spacing: 0.05em; height: 44px; @media (max-width: 640px) { padding: 0 16px; height: 36px; } }
-      &.mini { margin-top: 12px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-sub); }
+      display: flex; gap: 12px; margin-top: 16px; padding: 6px; border-radius: 100px;
+      background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-sub);
+      align-items: center;
+      input { flex: 1; padding: 12px 20px; border: none; background: none; color: #FFFFFF; font-size: 14px; font-weight: 500; min-width: 0; &:focus { outline: none; } @media (max-width: 640px) { padding: 10px 16px; font-size: 13px; } }
+      button { padding: 0 24px; font-size: 11px; font-weight: 800; letter-spacing: 0.05em; height: 40px; border-radius: 100px; flex-shrink: 0; @media (max-width: 640px) { padding: 0 16px; height: 34px; font-size: 10px; } }
+      &.mini { margin-top: 12px; background: rgba(255, 255, 255, 0.03); }
     }
     .replies-list { display: flex; flex-direction: column; gap: 0; margin-top: 20px; border-left: 2px solid var(--border-sub); padding-left: 24px; @media (max-width: 640px) { padding-left: 16px; } }
 

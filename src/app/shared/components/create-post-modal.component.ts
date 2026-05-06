@@ -277,13 +277,20 @@ import { Post, User } from '../../shared/models/models';
         margin: 0; border-radius: 0; min-height: 100vh; border: none;
         max-width: 100%;
       }
-      .modal-header { padding: 12px 16px; gap: 12px; }
-      .header-tabs { flex: 1; overflow-x: auto; scrollbar-width: none; &::-webkit-scrollbar { display: none; } }
-      .tab-btn { padding: 6px 12px; white-space: nowrap; }
+      .modal-header { padding: 12px 16px; gap: 8px; justify-content: space-between; }
+      .header-tabs { 
+        flex: 1; display: flex; justify-content: center; gap: 4px;
+        overflow-x: auto; scrollbar-width: none; &::-webkit-scrollbar { display: none; } 
+      }
+      .tab-btn { padding: 6px 14px; white-space: nowrap; font-size: 10px; }
+      .close-btn { padding: 6px; }
+      .spacer { display: none; }
       
-      .compose-area { padding: 16px; gap: 16px; min-height: auto; flex: 1; }
+      .compose-area { padding: 20px 16px; gap: 12px; min-height: auto; flex: 1; }
       .composer-av { width: 36px; height: 36px; }
-      .post-input { font-size: 16px; min-height: 120px; }
+      .compose-right { gap: 16px; }
+      .post-input { font-size: 16px; min-height: 140px; }
+      .hashtags-row { padding: 10px 16px; }
       
       .modal-footer { 
         padding: 16px; flex-direction: column; gap: 16px; align-items: stretch;

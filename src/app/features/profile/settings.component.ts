@@ -122,7 +122,7 @@ import { ThemeService } from '../../core/services/theme.service';
     .settings-page { display: flex; flex-direction: column; min-height: 100vh; max-width: 800px; margin: 0 auto; background: var(--bg); }
     
     .settings-header { 
-      position: sticky; top: 96px; z-index: 100;
+      position: sticky; top: 80px; z-index: 100;
       padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; 
       background: rgba(255, 255, 255, 0.05);
       backdrop-filter: blur(40px);
@@ -130,6 +130,7 @@ import { ThemeService } from '../../core/services/theme.service';
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 100px; margin: 0 16px 24px;
       box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      @media (max-width: 640px) { top: 72px; padding: 12px 16px; margin: 0 8px 16px; }
     }
     .page-title { font-size: 20px; font-weight: 800; letter-spacing: 0.1em; margin: 0; }
 
@@ -138,17 +139,18 @@ import { ThemeService } from '../../core/services/theme.service';
     .section-label { font-size: 12px; font-weight: 800; color: var(--text3); letter-spacing: 0.1em; margin-bottom: 32px; text-transform: uppercase; }
 
     .edit-profile-box { display: flex; flex-direction: column; gap: 32px; }
-    .avatar-edit-row { display: flex; align-items: center; gap: 32px; }
+    .avatar-edit-row { display: flex; align-items: center; gap: 32px; @media (max-width: 640px) { gap: 20px; } }
     .settings-avatar { 
-      width: 100px; height: 100px; border-radius: 50%;
+      width: 100px; height: 100px; border-radius: 50%; flex-shrink: 0;
       border: 4px solid var(--bg); background: #1a1a1a; 
       display: flex; align-items: center; justify-content: center; 
       font-weight: 800; font-size: 32px; overflow: hidden; color: #FFFFFF; 
       box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-      img { width: 100%; height: 100%; object-fit: cover; } 
+      @media (max-width: 640px) { width: 80px; height: 80px; font-size: 24px; }
+      img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; } 
     }
-    .avatar-meta { display: flex; flex-direction: column; gap: 12px; }
-    .btn-sm { font-size: 11px; padding: 10px 20px; }
+    .avatar-meta { display: flex; flex-direction: column; gap: 12px; @media (max-width: 640px) { gap: 8px; } }
+    .btn-sm { font-size: 11px; padding: 10px 20px; @media (max-width: 640px) { padding: 8px 16px; font-size: 10px; } }
     .hint { font-size: 10px; color: var(--text3); font-weight: 700; letter-spacing: 0.05em; }
 
     .field-group { display: flex; flex-direction: column; gap: 12px; }
@@ -166,11 +168,11 @@ import { ThemeService } from '../../core/services/theme.service';
       cursor: pointer;
     }
     
-    .meta { display: flex; flex-direction: column; gap: 6px; }
-    .row-title { font-size: 16px; font-weight: 800; color: var(--text); letter-spacing: -0.01em; }
-    .row-val { font-size: 12px; color: var(--text3); font-weight: 700; letter-spacing: 0.02em; }
+    .meta { display: flex; flex-direction: column; gap: 6px; flex: 1; min-width: 0; }
+    .row-title { font-size: 16px; font-weight: 800; color: var(--text); letter-spacing: -0.01em; @media (max-width: 640px) { font-size: 14px; } }
+    .row-val { font-size: 12px; color: var(--text3); font-weight: 700; letter-spacing: 0.02em; @media (max-width: 640px) { font-size: 10px; } }
 
-    .edit-field { padding: 32px; border-radius: var(--radius-md); background: rgba(0,0,0,0.2); border: 1px solid var(--border-sub); margin-top: 24px; display: flex; flex-direction: column; gap: 24px; }
+    .edit-field { padding: 32px; border-radius: var(--radius-md); background: rgba(0,0,0,0.2); border: 1px solid var(--border-sub); margin-top: 24px; display: flex; flex-direction: column; gap: 24px; @media (max-width: 640px) { padding: 20px; gap: 16px; } }
     
     .save-row { display: flex; gap: 16px; margin-top: 8px; }
 

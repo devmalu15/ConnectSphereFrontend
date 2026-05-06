@@ -135,13 +135,16 @@ type PendingFollowRequest = { followId: number; followerId: number; follower?: U
         <h3>NO POSTS YET</h3>
         <p *ngIf="isOwnProfile">Share your first story with the world.</p>
       </div>
-      <app-post-card *ngFor="let p of posts()" [post]="p" />
+      <div class="profile-posts-list">
+        <app-post-card *ngFor="let p of posts()" [post]="p" />
+      </div>
       <div *ngIf="hasMore()" class="load-more-row">
         <button class="btn glass pill show-more-btn" (click)="loadMorePosts()">LOAD MORE POSTS</button>
       </div>
     </div>
   `,
   styles: [`
+    .profile-posts-list { display: flex; flex-direction: column; gap: 40px; @media (max-width: 640px) { gap: 32px; } }
     
     .profile-sticky-header {
       position: sticky; top: 80px; z-index: 100;

@@ -165,11 +165,11 @@ img { display: block; max-width: 100%; border: 1px solid var(--border); border-r
   max-width: 1400px;
   margin: 0 auto;
   gap: 32px;
-  padding: 32px;
+  padding: 112px 32px 32px; /* 80px topnav + 32px gap */
   background: var(--bg);
 
-  @media (max-width: 1200px) { grid-template-columns: 80px 1fr; padding: 16px; gap: 16px; }
-  @media (max-width: 640px)  { grid-template-columns: 1fr; padding: 16px 16px 80px 16px; }
+  @media (max-width: 1200px) { grid-template-columns: 80px 1fr; padding: 96px 16px 16px; }
+  @media (max-width: 640px)  { grid-template-columns: 1fr; padding: 80px 16px 80px; }
 }
 
 .main-content {

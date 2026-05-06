@@ -111,7 +111,7 @@ import { CreatePostModalComponent } from '../../shared/components/create-post-mo
       }
     }
 
-    .feed-scroll-content { flex: 1; display: flex; flex-direction: column; gap: 32px; @media (max-width: 640px) { gap: 16px; } }
+    .feed-scroll-content { flex: 1; display: flex; flex-direction: column; gap: 32px; @media (max-width: 640px) { gap: 24px; } }
 
     .compose-card {
       display: flex; align-items: center; gap: 20px; padding: 20px 28px;
@@ -132,7 +132,7 @@ import { CreatePostModalComponent } from '../../shared/components/create-post-mo
     .placeholder { font-size: 16px; font-weight: 600; color: var(--text3); flex: 1; letter-spacing: -0.01em; @media (max-width: 640px) { font-size: 14px; } }
     .compose-icon { color: var(--text3); svg { width: 20px; } }
 
-    .posts-list { display: flex; flex-direction: column; gap: 32px; @media (max-width: 640px) { gap: 16px; } }
+    .posts-list { display: flex; flex-direction: column; gap: 32px; @media (max-width: 640px) { gap: 24px; } }
 
     .feed-sidebar { 
       position: sticky; top: 112px; height: fit-content;
