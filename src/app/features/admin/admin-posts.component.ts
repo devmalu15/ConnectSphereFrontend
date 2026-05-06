@@ -1,7 +1,7 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { AdminService, PostService } from '../../core/services/api.services';
+import { AdminService, PostService, UserService } from '../../core/services/api.services';
 import { Post } from '../../shared/models/models';
 import { PostCardComponent } from '../../shared/components/post-card.component';
 
@@ -48,7 +48,7 @@ import { PostCardComponent } from '../../shared/components/post-card.component';
                 </div>
                 <div>
                   <p class="user-name">{{ p.user?.fullName }}</p>
-                  <p class="user-handle">{{ p.user?.userName }}</p>
+                  <p class="user-handle">&#64;{{ p.user?.userName }}</p>
                 </div>
               </div>
             </td>
@@ -115,7 +115,7 @@ import { PostCardComponent } from '../../shared/components/post-card.component';
           </button>
         </div>
         <div class="modal-body scroll-y">
-          <app-post-card [post]="selectedPost()!" [isPreview]="true" />
+          <app-post-card [post]="selectedPost()!" [isPreview]="false" />
         </div>
         <div class="modal-footer">
           <button class="btn primary pill" (click)="selectedPost.set(null)">CLOSE PREVIEW</button>
@@ -210,7 +210,7 @@ import { PostCardComponent } from '../../shared/components/post-card.component';
     .modal-header { padding: 24px 32px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); }
     .modal-title { font-size: 14px; font-weight: 900; letter-spacing: 0.1em; color: #FFFFFF; }
     .close-btn { color: var(--text3); &:hover { color: #FFFFFF; } svg { width: 20px; } }
-    .modal-body { flex: 1; padding: 32px; overflow-y: auto; }
+    .modal-body { flex: 1; padding: 0; overflow-y: auto; }
     .modal-footer { padding: 24px 32px; display: flex; justify-content: flex-end; border-top: 1px solid rgba(255,255,255,0.05); }
 
     .pagination { 
@@ -238,7 +238,7 @@ export class AdminPostsComponent implements OnInit {
   toast = signal('');
   selectedPost = signal<Post | null>(null);
 
-  constructor(private adminService: AdminService, private postService: PostService) {}
+  constructor(private adminService: AdminService, private postService: PostService, private userService: UserService) {}
 
   ngOnInit() { this.loadPage(1); }
 
@@ -248,15 +248,42 @@ export class AdminPostsComponent implements OnInit {
     this.postService.getPublic(p).subscribe({
       next: (r: any) => {
         const items = r.data.items || [];
-        this.posts.set(items);
+        this.enrichPostsWithUsers(items);
         this.totalPages = r.data.totalPages || 1;
-        this.filterPosts();
-        this.loading.set(false);
       },
       error: () => {
         this.loading.set(false);
         this.showToast('Failed to load posts');
       }
+    });
+  }
+
+  enrichPostsWithUsers(posts: Post[]) {
+    if (posts.length === 0) { this.posts.set([]); this.loading.set(false); return; }
+    const ids = [...new Set(posts.map(p => p.userId))];
+    const map: Record<number, any> = {};
+    let done = 0;
+    ids.forEach(uid => {
+      this.userService.getById(uid).subscribe({
+        next: r => { map[uid] = r.data; },
+        complete: () => { 
+          done++; 
+          if (done === ids.length) { 
+            const enriched = posts.map(p => ({ ...p, user: map[p.userId] }));
+            this.posts.set(enriched);
+            this.filterPosts();
+            this.loading.set(false);
+          } 
+        },
+        error: () => { 
+          done++; 
+          if (done === ids.length) { 
+            this.posts.set(posts);
+            this.filterPosts();
+            this.loading.set(false);
+          } 
+        }
+      });
     });
   }
 
