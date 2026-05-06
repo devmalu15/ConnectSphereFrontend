@@ -143,11 +143,12 @@ import { PostCardComponent } from '../../shared/components/post-card.component';
     }
 
     .users-table { 
-      border-radius: 24px; border: 1px solid rgba(255, 255, 255, 0.08); overflow: hidden;
+      border-radius: 24px; border: 1px solid rgba(255, 255, 255, 0.08); overflow-x: auto;
       background: rgba(15, 15, 15, 0.5); backdrop-filter: blur(20px);
+      scrollbar-width: none; &::-webkit-scrollbar { display: none; }
     }
     
-    table { width: 100%; border-collapse: collapse; }
+    table { width: 100%; border-collapse: collapse; min-width: 900px; }
     th { 
       text-align: left; padding: 20px 24px; font-size: 10px; font-weight: 800; 
       text-transform: uppercase; letter-spacing: 0.1em; color: var(--text3); 
@@ -186,7 +187,7 @@ import { PostCardComponent } from '../../shared/components/post-card.component';
       &.private { background: rgba(243, 156, 18, 0.1); color: #f39c12; }
     }
 
-    .action-btns { display: flex; gap: 8px; }
+    .action-btns { display: flex; gap: 8px; flex-shrink: 0; white-space: nowrap; }
     .action-icon { 
       width: 32px; height: 32px; border-radius: 10px; display: flex; align-items: center; justify-content: center;
       color: var(--text3); transition: var(--transition); border: 1px solid transparent;
