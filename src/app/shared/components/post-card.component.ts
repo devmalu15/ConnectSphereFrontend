@@ -29,7 +29,7 @@ interface ContentSegment {
             </div>
           </a>
           <div class="user-meta">
-            <a [routerLink]="['/profile', post.userId]" class="fullname">{{ post.user?.fullName || post.user?.userName }}</a>
+            <a [routerLink]="['/profile', post.userId]" class="fullname">&#64;{{ post.user?.userName }}</a>
             <span class="timestamp">{{ post.createdAt | date:'MMM d' }}</span>
           </div>
           <div class="spacer"></div>
@@ -94,7 +94,7 @@ interface ContentSegment {
             </a>
             <div class="c-body">
               <div class="c-header">
-                <a [routerLink]="['/profile', c.userId]" class="c-user">{{ c.user?.userName }}</a>
+                <a [routerLink]="['/profile', c.userId]" class="c-user">&#64;{{ c.user?.userName }}</a>
                 <span class="c-time">{{ c.createdAt | date:'shortTime' }}</span>
               </div>
               <p class="c-txt">
@@ -133,7 +133,7 @@ interface ContentSegment {
                   </a>
                   <div class="c-body">
                     <div class="c-header">
-                      <a [routerLink]="['/profile', r.userId]" class="c-user">{{ r.user?.userName }}</a>
+                      <a [routerLink]="['/profile', r.userId]" class="c-user">&#64;{{ r.user?.userName }}</a>
                     </div>
                     <p class="c-txt">
                       <ng-container *ngFor="let seg of getSegments(r.content)">
