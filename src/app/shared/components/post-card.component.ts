@@ -188,12 +188,13 @@ interface ContentSegment {
       backdrop-filter: var(--glass-blur);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
       transition: var(--transition);
+      @media (max-width: 640px) { padding: 16px; gap: 16px; border-radius: 20px; }
     }
-    .user-row { display: flex; align-items: center; gap: 14px; }
-    .main-av { width: 48px; height: 48px; border: 2px solid rgba(255, 255, 255, 0.1); }
+    .user-row { display: flex; align-items: center; gap: 14px; @media (max-width: 640px) { gap: 10px; } }
+    .main-av { width: 48px; height: 48px; border: 2px solid rgba(255, 255, 255, 0.1); @media (max-width: 640px) { width: 40px; height: 40px; } }
     .user-meta { display: flex; flex-direction: column; gap: 2px; }
-    .fullname { font-weight: 800; font-size: 16px; color: var(--text); letter-spacing: -0.01em; &:hover { color: var(--text2); } }
-    .timestamp { font-size: 12px; color: var(--text3); font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; }
+    .fullname { font-weight: 800; font-size: 16px; color: var(--text); letter-spacing: -0.01em; &:hover { color: var(--text2); } @media (max-width: 640px) { font-size: 14px; } }
+    .timestamp { font-size: 12px; color: var(--text3); font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; @media (max-width: 640px) { font-size: 10px; } }
     .spacer { flex: 1; }
     .more-btn { color: var(--text3); padding: 8px; border-radius: 50%; &:hover { background: var(--surface2); color: var(--text); } svg { width: 20px; } }
     
@@ -205,23 +206,28 @@ interface ContentSegment {
     }
     .danger-btn { color: #FF3B30; font-size: 11px; font-weight: 800; padding: 12px 24px; &:hover { background: rgba(255, 59, 48, 0.1); } }
     
-    .post-text { font-size: 17px; line-height: 1.5; color: var(--text); white-space: pre-wrap; letter-spacing: -0.01em; }
-    .large-text { font-size: 32px; font-weight: 800; line-height: 1.2; color: #FFFFFF; letter-spacing: -0.04em; }
+    .post-text { font-size: 17px; line-height: 1.5; color: var(--text); white-space: pre-wrap; letter-spacing: -0.01em; @media (max-width: 640px) { font-size: 15px; } }
+    .large-text { font-size: 32px; font-weight: 800; line-height: 1.2; color: #FFFFFF; letter-spacing: -0.04em; @media (max-width: 640px) { font-size: 24px; } }
     
     .tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
-    .tag { font-size: 14px; font-weight: 700; color: var(--text3); &:hover { color: var(--text); } }
+    .tag { font-size: 14px; font-weight: 700; color: var(--text3); &:hover { color: var(--text); } @media (max-width: 640px) { font-size: 12px; } }
     
-    .media-container { border-radius: var(--radius-md); overflow: hidden; margin-top: 4px; border: 1px solid var(--border); box-shadow: var(--shadow); }
-    .media-img, .media-video { width: 100%; max-height: 600px; object-fit: cover; display: block; }
+    .media-container { border-radius: var(--radius-md); overflow: hidden; margin-top: 4px; border: 1px solid var(--border); box-shadow: var(--shadow); @media (max-width: 640px) { border-radius: 12px; } }
+    .media-img, .media-video { width: 100%; max-height: 600px; object-fit: cover; display: block; @media (max-width: 640px) { max-height: 400px; } }
     
-    .action-bar { display: flex; gap: 4px; padding: 6px; border-radius: 100px; width: fit-content; margin-top: 8px; background: rgba(255, 255, 255, 0.08); border: 1px solid var(--border); }
+    .action-bar { 
+      display: flex; gap: 4px; padding: 6px; border-radius: 100px; width: fit-content; margin-top: 8px; 
+      background: rgba(255, 255, 255, 0.08); border: 1px solid var(--border); 
+      @media (max-width: 640px) { width: 100%; justify-content: space-around; }
+    }
     .act-btn { 
       display: flex; align-items: center; justify-content: center; gap: 10px; padding: 10px 24px; 
       font-size: 14px; font-weight: 700; color: var(--text3); border-radius: 100px;
       transition: var(--transition);
+      @media (max-width: 640px) { padding: 8px 12px; font-size: 12px; gap: 6px; }
       &:hover { background: rgba(255, 255, 255, 0.1); color: var(--text); } 
       &.active { color: #FF375F; svg { fill: #FF375F; stroke: #FF375F; } } 
-      svg { width: 18px; height: 18px; stroke-width: 2.5; } 
+      svg { width: 18px; height: 18px; stroke-width: 2.5; @media (max-width: 640px) { width: 16px; height: 16px; } } 
     }
 
     .mention-link { color: #0A84FF; font-weight: 700; &:hover { text-decoration: underline; } }
@@ -235,29 +241,31 @@ interface ContentSegment {
       border-radius: var(--radius-lg);
       backdrop-filter: blur(20px);
       box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
+      @media (max-width: 640px) { margin: 0 8px 8px; padding: 16px; gap: 16px; border-radius: 16px; }
     }
     .comment-item { display: flex; flex-direction: column; gap: 12px; border-bottom: 1px solid var(--border-sub); padding-bottom: 20px; &:last-child { border: none; padding: 0; } }
-    .c-row { display: flex; gap: 14px; }
-    .c-av { width: 32px; height: 32px; border: 1px solid rgba(255, 255, 255, 0.1); }
+    .c-row { display: flex; gap: 14px; @media (max-width: 640px) { gap: 10px; } }
+    .c-av { width: 32px; height: 32px; border: 1px solid rgba(255, 255, 255, 0.1); @media (max-width: 640px) { width: 28px; height: 28px; } }
     .c-body { flex: 1; min-width: 0; }
     .c-header { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
-    .c-user { font-weight: 800; font-size: 14px; color: var(--text); }
+    .c-user { font-weight: 800; font-size: 14px; color: var(--text); @media (max-width: 640px) { font-size: 13px; } }
     .c-time { font-size: 11px; color: var(--text3); font-weight: 600; text-transform: uppercase; }
-    .c-txt { font-size: 15px; color: var(--text2); line-height: 1.5; }
-    .c-actions { display: flex; gap: 12px; margin-top: 12px; }
+    .c-txt { font-size: 15px; color: var(--text2); line-height: 1.5; @media (max-width: 640px) { font-size: 14px; } }
+    .c-actions { display: flex; gap: 12px; margin-top: 12px; @media (max-width: 640px) { gap: 8px; } }
     .c-act { 
       font-size: 10px; font-weight: 800; color: var(--text3); border-radius: 100px;
       &.active { color: #FF375F; }
-      &.btn.glass { padding: 6px 14px; background: rgba(255, 255, 255, 0.05); }
+      &.btn.glass { padding: 6px 14px; background: rgba(255, 255, 255, 0.05); @media (max-width: 640px) { padding: 4px 10px; } }
     }
 
     .c-input-row {
       display: flex; gap: 12px; margin-top: 16px; padding: 8px; border-radius: 100px;
-      input { flex: 1; padding: 12px 24px; border: none; background: none; color: #FFFFFF; font-size: 14px; font-weight: 500; &:focus { outline: none; } }
-      button { padding: 0 24px; font-size: 11px; letter-spacing: 0.05em; height: 44px; }
+      input { flex: 1; padding: 12px 24px; border: none; background: none; color: #FFFFFF; font-size: 14px; font-weight: 500; &:focus { outline: none; } @media (max-width: 640px) { padding: 8px 16px; font-size: 13px; } }
+      button { padding: 0 24px; font-size: 11px; letter-spacing: 0.05em; height: 44px; @media (max-width: 640px) { padding: 0 16px; height: 36px; } }
       &.mini { margin-top: 12px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-sub); }
     }
-    .replies-list { display: flex; flex-direction: column; gap: 0; margin-top: 20px; border-left: 2px solid var(--border-sub); padding-left: 24px; }
+    .replies-list { display: flex; flex-direction: column; gap: 0; margin-top: 20px; border-left: 2px solid var(--border-sub); padding-left: 24px; @media (max-width: 640px) { padding-left: 16px; } }
+
   `]
 })
 export class PostCardComponent implements OnInit {

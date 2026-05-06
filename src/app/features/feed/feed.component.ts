@@ -95,7 +95,7 @@ import { CreatePostModalComponent } from '../../shared/components/create-post-mo
     
     /* feed-nav removed */
 
-    .tabs-container { display: flex; justify-content: center; margin-bottom: 16px; }
+    .tabs-container { display: flex; justify-content: center; margin-bottom: 16px; @media (max-width: 640px) { margin-bottom: 12px; } }
     .tabs-inner {
       display: flex; gap: 4px; padding: 6px;
       background: rgba(255, 255, 255, 0.08);
@@ -105,12 +105,13 @@ import { CreatePostModalComponent } from '../../shared/components/create-post-mo
       .btn { 
         border: none; background: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; 
         font-size: 12px; font-weight: 800; padding: 10px 24px; color: var(--text3);
+        @media (max-width: 640px) { padding: 8px 16px; font-size: 11px; }
         &.primary { background: #FFFFFF; color: #000; box-shadow: 0 8px 16px rgba(255, 255, 255, 0.15); }
         &:hover:not(.primary) { color: var(--text); background: rgba(255, 255, 255, 0.05); }
       }
     }
 
-    .feed-scroll-content { flex: 1; display: flex; flex-direction: column; gap: 32px; }
+    .feed-scroll-content { flex: 1; display: flex; flex-direction: column; gap: 32px; @media (max-width: 640px) { gap: 16px; } }
 
     .compose-card {
       display: flex; align-items: center; gap: 20px; padding: 20px 28px;
@@ -120,17 +121,18 @@ import { CreatePostModalComponent } from '../../shared/components/create-post-mo
       border: 1px solid var(--border);
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
       transition: var(--transition);
+      @media (max-width: 640px) { padding: 14px 20px; gap: 16px; border-radius: 20px; }
       &:hover { 
         background: rgba(255, 255, 255, 0.1); 
         transform: translateY(-4px); 
         box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.1);
       }
     }
-    .compose-av { width: 44px; height: 44px; border: 2px solid rgba(255, 255, 255, 0.1); }
-    .placeholder { font-size: 16px; font-weight: 600; color: var(--text3); flex: 1; letter-spacing: -0.01em; }
+    .compose-av { width: 44px; height: 44px; border: 2px solid rgba(255, 255, 255, 0.1); @media (max-width: 640px) { width: 36px; height: 36px; } }
+    .placeholder { font-size: 16px; font-weight: 600; color: var(--text3); flex: 1; letter-spacing: -0.01em; @media (max-width: 640px) { font-size: 14px; } }
     .compose-icon { color: var(--text3); svg { width: 20px; } }
 
-    .posts-list { display: flex; flex-direction: column; gap: 32px; }
+    .posts-list { display: flex; flex-direction: column; gap: 32px; @media (max-width: 640px) { gap: 16px; } }
 
     .feed-sidebar { 
       position: sticky; top: 112px; height: fit-content;
@@ -156,7 +158,7 @@ import { CreatePostModalComponent } from '../../shared/components/create-post-mo
     .empty p { font-size: 15px; color: var(--text3); }
 
     .load-more-row { padding: 32px 0 64px; }
-    .show-more-btn { height: 56px; padding: 0 48px; font-size: 15px; font-weight: 800; }
+    .show-more-btn { height: 56px; padding: 0 48px; font-size: 15px; font-weight: 800; @media (max-width: 640px) { height: 48px; padding: 0 32px; font-size: 13px; } }
   `]
 })
 export class FeedComponent implements OnInit {

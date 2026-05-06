@@ -96,15 +96,16 @@ import { PostCardComponent } from '../../shared/components/post-card.component';
     .notif-page { display: flex; flex-direction: column; min-height: 100vh; max-width: 800px; margin: 0 auto; background: var(--bg); }
     
     .notif-header { 
-      position: sticky; top: 96px; z-index: 100;
+      position: sticky; top: 80px; z-index: 100;
       padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; 
       border-radius: 100px; margin: 0 16px 24px;
       box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+      @media (max-width: 640px) { padding: 12px 16px; margin: 0 8px 16px; top: 72px; }
     }
-    .title { font-size: 20px; font-weight: 800; letter-spacing: -0.02em; margin: 0; }
-    .mark-all-btn { font-size: 11px; font-weight: 800; letter-spacing: 0.1em; padding: 10px 20px; }
+    .title { font-size: 20px; font-weight: 800; letter-spacing: -0.02em; margin: 0; @media (max-width: 640px) { font-size: 16px; } }
+    .mark-all-btn { font-size: 11px; font-weight: 800; letter-spacing: 0.1em; padding: 10px 20px; @media (max-width: 640px) { padding: 8px 12px; font-size: 10px; } }
 
-    .tabs-container { display: flex; justify-content: center; margin-bottom: 24px; }
+    .tabs-container { display: flex; justify-content: center; margin-bottom: 24px; @media (max-width: 640px) { margin-bottom: 16px; } }
     .tabs-inner {
       display: flex; gap: 4px; padding: 6px;
       background: rgba(255, 255, 255, 0.05);
@@ -113,11 +114,12 @@ import { PostCardComponent } from '../../shared/components/post-card.component';
       .btn { 
         border: none; background: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; 
         font-size: 12px; font-weight: 800; padding: 10px 28px; color: var(--text3);
+        @media (max-width: 640px) { padding: 8px 20px; font-size: 11px; }
         &.primary { background: #FFFFFF; color: #000; box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1); }
       }
     }
 
-    .notif-scroll-area { padding: 0 16px; flex: 1; }
+    .notif-scroll-area { padding: 0 16px; flex: 1; @media (max-width: 640px) { padding: 0 12px; } }
     .notif-list { display: flex; flex-direction: column; gap: 12px; }
     .posts-list { display: flex; flex-direction: column; gap: 32px; padding: 0 0 32px; }
     

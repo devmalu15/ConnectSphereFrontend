@@ -144,23 +144,24 @@ type PendingFollowRequest = { followId: number; followerId: number; follower?: U
   styles: [`
     
     .profile-sticky-header {
-      position: sticky; top: 96px; z-index: 100;
+      position: sticky; top: 80px; z-index: 100;
       display: flex; align-items: center; gap: 24px;
       padding: 16px 24px; border-radius: 100px;
       margin: 0 16px;
       box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+      @media (max-width: 640px) { top: 72px; padding: 12px 16px; gap: 16px; margin: 0 8px; }
     }
-    .back-btn { width: 44px; height: 44px; padding: 0; }
+    .back-btn { width: 44px; height: 44px; padding: 0; @media (max-width: 640px) { width: 36px; height: 36px; svg { width: 16px; } } }
     .header-meta { display: flex; flex-direction: column; gap: 2px; }
-    .sticky-name { font-size: 18px; font-weight: 800; letter-spacing: -0.02em; }
+    .sticky-name { font-size: 18px; font-weight: 800; letter-spacing: -0.02em; @media (max-width: 640px) { font-size: 15px; } }
     .sticky-count { font-size: 10px; color: var(--text3); font-weight: 800; letter-spacing: 0.1em; }
 
-    .profile-cover { height: 240px; background: linear-gradient(135deg, #1a1a1a 0%, #000 100%); margin-top: -80px; }
+    .profile-cover { height: 240px; background: linear-gradient(135deg, #1a1a1a 0%, #000 100%); margin-top: -80px; @media (max-width: 640px) { height: 180px; } }
     .cover-inner { width: 100%; height: 100%; opacity: 0.5; }
 
-    .profile-info-section { padding: 24px 32px 0; }
+    .profile-info-section { padding: 24px 32px 0; @media (max-width: 640px) { padding: 16px 20px 0; } }
 
-    .avatar-action-row { display: flex; align-items: flex-end; justify-content: space-between; margin-top: -80px; margin-bottom: 24px; }
+    .avatar-action-row { display: flex; align-items: flex-end; justify-content: space-between; margin-top: -80px; margin-bottom: 24px; @media (max-width: 640px) { margin-top: -60px; margin-bottom: 16px; } }
 
     .profile-avatar {
       width: 140px; height: 140px; border-radius: 50%;
@@ -170,14 +171,15 @@ type PendingFollowRequest = { followId: number; followerId: number; follower?: U
       font-size: 48px; font-weight: 800; color: #FFFFFF;
       overflow: hidden;
       box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      @media (max-width: 640px) { width: 100px; height: 100px; border-width: 4px; font-size: 32px; }
     }
 
-    .profile-actions { padding-bottom: 8px; display: flex; gap: 12px; }
+    .profile-actions { padding-bottom: 8px; display: flex; gap: 12px; @media (max-width: 640px) { padding-bottom: 0; .btn { padding: 8px 16px; font-size: 12px; } } }
 
     .profile-names { margin-bottom: 16px; }
-    .profile-full-name { font-size: 32px; font-weight: 800; letter-spacing: -0.05em; line-height: 1.1; }
-    .profile-handle { font-size: 18px; color: var(--text3); font-weight: 600; letter-spacing: -0.02em; }
-    .profile-bio { font-size: 16px; line-height: 1.6; margin-bottom: 24px; color: var(--text); max-width: 600px; }
+    .profile-full-name { font-size: 32px; font-weight: 800; letter-spacing: -0.05em; line-height: 1.1; @media (max-width: 640px) { font-size: 24px; } }
+    .profile-handle { font-size: 18px; color: var(--text3); font-weight: 600; letter-spacing: -0.02em; @media (max-width: 640px) { font-size: 15px; } }
+    .profile-bio { font-size: 16px; line-height: 1.6; margin-bottom: 24px; color: var(--text); max-width: 600px; @media (max-width: 640px) { font-size: 14px; margin-bottom: 16px; } }
     
     .private-badge { 
       display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px;
@@ -186,10 +188,10 @@ type PendingFollowRequest = { followId: number; followerId: number; follower?: U
       svg { width: 14px; height: 14px; } 
     }
 
-    .profile-stats { display: flex; gap: 40px; padding: 24px 0; border-top: 1px solid var(--border-sub); border-bottom: 1px solid var(--border-sub); }
+    .profile-stats { display: flex; gap: 40px; padding: 24px 0; border-top: 1px solid var(--border-sub); border-bottom: 1px solid var(--border-sub); @media (max-width: 640px) { gap: 24px; padding: 16px 0; } }
     .stat-btn { display: flex; align-items: baseline; gap: 8px; }
-    .stat-num { font-size: 20px; font-weight: 800; color: #FFFFFF; letter-spacing: -0.02em; }
-    .stat-lbl { font-size: 14px; color: var(--text3); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+    .stat-num { font-size: 20px; font-weight: 800; color: #FFFFFF; letter-spacing: -0.02em; @media (max-width: 640px) { font-size: 16px; } }
+    .stat-lbl { font-size: 14px; color: var(--text3); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; @media (max-width: 640px) { font-size: 12px; } }
 
     .pending-section { 
       padding: 24px; border-radius: var(--radius-lg); background: rgba(255, 255, 255, 0.03); 
@@ -199,20 +201,20 @@ type PendingFollowRequest = { followId: number; followerId: number; follower?: U
     .pending-row { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--border-sub); font-size: 14px; font-weight: 700; &:last-child { border: none; } }
 
     .follow-panel { 
-      padding: 32px; border-radius: var(--radius-lg); background: rgba(10, 10, 10, 0.8); 
+      padding: 24px; border-radius: var(--radius-lg); background: rgba(10, 10, 10, 0.95); 
       backdrop-filter: blur(40px); border: 1px solid var(--border-sub); margin: 24px 0;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
-      backdrop-filter: blur(40px); border: 1px solid var(--border-sub); margin: 32px 0;
       box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+      @media (max-width: 640px) { padding: 16px; margin: 16px 8px; }
     }
-    .follow-panel-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; h4 { font-size: 24px; font-weight: 800; letter-spacing: -0.04em; } }
+    .follow-panel-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; h4 { font-size: 20px; font-weight: 800; letter-spacing: -0.04em; } }
     .follow-list-content { display: flex; flex-direction: column; gap: 12px; }
-    .follow-row { display: flex; align-items: center; justify-content: space-between; padding: 16px; border: 1px solid var(--border-sub); border-radius: 16px; background: rgba(255, 255, 255, 0.03); transition: var(--transition); &:hover { background: rgba(255, 255, 255, 0.06); transform: translateY(-2px); } }
-    .follow-user { display: flex; align-items: center; gap: 16px; text-decoration: none; color: inherit; }
-    .follow-av { width: 48px; height: 48px; border: 2px solid rgba(255, 255, 255, 0.1); }
+    .follow-row { display: flex; align-items: center; justify-content: space-between; padding: 12px; border: 1px solid var(--border-sub); border-radius: 16px; background: rgba(255, 255, 255, 0.03); transition: var(--transition); &:hover { background: rgba(255, 255, 255, 0.06); transform: translateY(-2px); } }
+    .follow-user { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
+    .follow-av { width: 40px; height: 40px; border: 2px solid rgba(255, 255, 255, 0.1); }
     .f-info { display: flex; flex-direction: column; }
-    .f-name { font-size: 16px; font-weight: 800; color: #FFFFFF; }
-    .f-handle { font-size: 14px; color: var(--text3); font-weight: 600; }
+    .f-name { font-size: 14px; font-weight: 800; color: #FFFFFF; }
+    .f-handle { font-size: 12px; color: var(--text3); font-weight: 600; }
+
 
     .posts-tabs-container { display: flex; justify-content: center; margin: 48px 0 32px; }
     .posts-tabs-inner { display: flex; padding: 6px; border-radius: 100px; border: 1px solid var(--border-sub); background: rgba(255, 255, 255, 0.05); }

@@ -14,7 +14,7 @@ import { CommonModule } from '@angular/common';
 
       <main class="landing-content">
         <div class="hero-section">
-          <h1 class="landing-title title-gradient">Connect Sphere</h1>
+          <h1 class="landing-title title-gradient">ConnectSphere</h1>
           <p class="landing-subtitle">Discover what's happening around you.</p>
           <div class="cta-group">
             <a routerLink="/auth/register" class="btn primary pill lg">GET STARTED</a>

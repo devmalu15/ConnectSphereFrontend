@@ -24,7 +24,8 @@ import { AuthService } from '../../core/services/auth.service';
           </a>
           
           <button class="btn glass pill logout-btn" (click)="auth.logout()">
-            LOGOUT
+            <span class="logout-text">LOGOUT</span>
+            <svg class="logout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"/><line x1="12" y1="2" x2="12" y2="12"/></svg>
           </button>
         </div>
       </div>
@@ -85,14 +86,21 @@ import { AuthService } from '../../core/services/auth.service';
     .logout-btn {
       font-size: 11px; font-weight: 800; letter-spacing: 0.1em;
       padding: 10px 24px; color: var(--text3);
+      display: flex; align-items: center; gap: 8px;
       &:hover { color: #FF3B30; background: rgba(255, 59, 48, 0.1); border-color: rgba(255, 59, 48, 0.2); }
     }
+    .logout-icon { display: none; width: 18px; height: 18px; }
 
     @media (max-width: 640px) {
       .nav-container { padding: 0 16px; }
-      .topnav { height: 72px; }
+      .topnav { height: 64px; }
+      .logo { font-size: 18px; }
       .user-name { display: none; }
-      .profile-chip { padding: 4px; }
+      .profile-chip { padding: 4px; gap: 0; }
+      .nav-right { gap: 12px; }
+      .logout-btn { padding: 8px; border-radius: 50%; width: 40px; height: 40px; justify-content: center; }
+      .logout-text { display: none; }
+      .logout-icon { display: block; }
     }
   `]
 })
