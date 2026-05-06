@@ -9,11 +9,7 @@ import { CommonModule } from '@angular/common';
   template: `
     <div class="landing-wrapper animate-fade">
       <header class="landing-nav">
-        <div class="nav-brand title-gradient">CONNECT</div>
-        <div class="nav-actions">
-          <a routerLink="/auth/login" class="btn glass pill">LOGIN</a>
-          <a routerLink="/auth/register" class="btn primary pill">SIGNUP</a>
-        </div>
+        <div class="nav-brand title-gradient">ConnectSphere</div>
       </header>
 
       <main class="landing-content">
